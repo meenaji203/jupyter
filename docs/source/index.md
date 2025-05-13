@@ -1,3 +1,39 @@
+import pandas as pd
+
+# Create the blocked ITC data as a DataFrame
+data = {
+    "Clause": ["(a)", "(aa)", "(ab)", "(b)", "(c)", "(d)", "(e)", "(f)", "(g)", "(h)"],
+    "Blocked Item / Service": [
+        "Motor vehicles (for transport of persons, seating ≤13 incl. driver)",
+        "Vessels and aircraft",
+        "Services of insurance, repair & maintenance for motor vehicles/vessels/aircraft",
+        "Food & beverages, outdoor catering, beauty treatment, health services, plastic surgery, life/health insurance, club membership",
+        "Works contract services for construction of immovable property",
+        "Construction of immovable property (other than plant/machinery) on own account",
+        "Goods/services used by composition scheme taxpayers",
+        "Goods/services used for personal consumption",
+        "Goods lost, stolen, destroyed, written off, or given as gifts/samples",
+        "Tax paid due to fraud, suppression, seizure, or confiscation"
+    ],
+    "ITC Allowed?": ["❌ No"] * 10,
+    "Exceptions (When ITC is Allowed)": [
+        "✅ If used for:\n– Further supply (e.g., car dealer)\n– Transport of passengers\n– Driving training services",
+        "✅ Same as above: Further supply, passenger transport, training",
+        "✅ If ITC on the vehicle is allowed as per (a) or (aa)",
+        "✅ If used for:\n– Outward taxable supply of same category (e.g., catering business)\n– Obligatory under any law",
+        "✅ If recipient is in the same line of business (i.e., further supplying works contract services)",
+        "❌ No exceptions",
+        "❌ No exceptions",
+        "❌ No exceptions",
+        "❌ No exceptions",
+        "❌ No exceptions"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+# Save the DataFrame to an Excel file
+df.to_excel("Section_17_5_Blocked_ITC_Cheat_Sheet.xlsx", index=False)
 # Project Jupyter Documentation
 
 Welcome to the Project Jupyter documentation site. Jupyter is a large umbrella
